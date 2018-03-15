@@ -40,6 +40,6 @@ async def on_message(message):
             uiFileObj.close()
     elif message.content.startswith('evt:'):
         bot.send_message(message.channel,':warning: Everything is still in WIP...')
-        process = Popen(['python3','../data/uiSub.py',tokenBot],stdout=-1,stderr=-1)
+        process = Popen(['python3','../data/uiSub.py',message.content,tokenBot],stdout=-1,stderr=-1)
         stdout,stderr = process.comminucate()
         bot.send_message(message.channel,stdout)
